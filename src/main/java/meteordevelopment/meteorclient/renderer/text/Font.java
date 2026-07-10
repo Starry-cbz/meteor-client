@@ -24,7 +24,10 @@ public class Font {
     private final float scale;
     private final float ascent;
     private final Int2ObjectOpenHashMap<CharData> charMap = new Int2ObjectOpenHashMap<>();
-    private static final int size = 2048;
+    // Increased to 4096 to accommodate CJK characters (~20k glyphs).
+    // NOTE: at the largest font scale (81px), only ~2,500 CJK glyphs fit — STB silently drops overflow.
+    // TODO: make CJK packing conditional (only when using a CJK-capable font) to save atlas space for non-CJK users.
+    private static final int size = 4096;
 
     public Font(ByteBuffer buffer, int height) {
         this.height = height;
@@ -36,12 +39,13 @@ public class Font {
         // Allocate buffers
         ByteBuffer bitmap = BufferUtils.createByteBuffer(size * size);
         STBTTPackedchar.Buffer[] cdata = {
-            STBTTPackedchar.create(95), // Basic Latin
-            STBTTPackedchar.create(96), // Latin 1 Supplement
-            STBTTPackedchar.create(128), // Latin Extended-A
-            STBTTPackedchar.create(144), // Greek and Coptic
-            STBTTPackedchar.create(256), // Cyrillic
-            STBTTPackedchar.create(1) // infinity symbol
+            STBTTPackedchar.create(95),   // Basic Latin
+            STBTTPackedchar.create(96),   // Latin 1 Supplement
+            STBTTPackedchar.create(128),  // Latin Extended-A
+            STBTTPackedchar.create(144),  // Greek and Coptic
+            STBTTPackedchar.create(256),  // Cyrillic
+            STBTTPackedchar.create(1),    // infinity symbol
+            STBTTPackedchar.create(20992) // CJK Unified Ideographs (U+4E00..U+9FFF)
         };
 
         // create and initialise packing context
@@ -50,12 +54,13 @@ public class Font {
 
         // create the pack range, populate with the specific packing ranges
         STBTTPackRange.Buffer packRange = STBTTPackRange.create(cdata.length);
-        packRange.put(STBTTPackRange.create().set(height, 32, null, 95, cdata[0], (byte) 2, (byte) 2));
-        packRange.put(STBTTPackRange.create().set(height, 160, null, 96, cdata[1], (byte) 2, (byte) 2));
-        packRange.put(STBTTPackRange.create().set(height, 256, null, 128, cdata[2], (byte) 2, (byte) 2));
-        packRange.put(STBTTPackRange.create().set(height, 880, null, 144, cdata[3], (byte) 2, (byte) 2));
-        packRange.put(STBTTPackRange.create().set(height, 1024, null, 256, cdata[4], (byte) 2, (byte) 2));
-        packRange.put(STBTTPackRange.create().set(height, 8734, null, 1, cdata[5], (byte) 2, (byte) 2)); // lol
+        packRange.put(STBTTPackRange.create().set(height, 32, null, 95, cdata[0], (byte) 2, (byte) 2));     // Basic Latin
+        packRange.put(STBTTPackRange.create().set(height, 160, null, 96, cdata[1], (byte) 2, (byte) 2));    // Latin 1 Supplement
+        packRange.put(STBTTPackRange.create().set(height, 256, null, 128, cdata[2], (byte) 2, (byte) 2));   // Latin Extended-A
+        packRange.put(STBTTPackRange.create().set(height, 880, null, 144, cdata[3], (byte) 2, (byte) 2));   // Greek and Coptic
+        packRange.put(STBTTPackRange.create().set(height, 1024, null, 256, cdata[4], (byte) 2, (byte) 2));  // Cyrillic
+        packRange.put(STBTTPackRange.create().set(height, 8734, null, 1, cdata[5], (byte) 2, (byte) 2));    // infinity
+        packRange.put(STBTTPackRange.create().set(height, 0x4E00, null, 20992, cdata[6], (byte) 2, (byte) 2)); // CJK
         packRange.flip();
 
         // write and finish

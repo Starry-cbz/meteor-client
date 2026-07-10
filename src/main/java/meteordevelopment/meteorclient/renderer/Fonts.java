@@ -20,11 +20,23 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class Fonts {
     public static final String[] BUILTIN_FONTS = { "JetBrains Mono", "Comfortaa", "Tw Cen MT", "Pixelation" };
+
+    /** CJK font families to search for on the system when the game language is CJK. */
+    private static final Set<String> CJK_FONT_FAMILIES = Set.of(
+        "Microsoft YaHei", "SimHei", "SimSun", "DengXian", "FangSong", "KaiTi", "Microsoft JhengHei",
+        "PingFang SC", "Heiti SC", "STHeiti",
+        "Noto Sans CJK SC", "WenQuanYi Micro Hei", "WenQuanYi Zen Hei",
+        "Noto Sans CJK JP", "Noto Sans CJK KR"
+    );
+
+    /** CJK language codes that need CJK font support. */
+    private static final Set<String> CJK_LANGS = Set.of("zh_cn", "zh_tw", "zh_hk", "ja_jp", "ko_kr");
 
     public static String DEFAULT_FONT_FAMILY;
     public static FontFace DEFAULT_FONT;
@@ -51,8 +63,20 @@ public class Fonts {
 
         MeteorClient.LOG.info("Found {} font families.", FONT_FAMILIES.size());
 
-        DEFAULT_FONT_FAMILY = FontUtils.getBuiltinFontInfo(BUILTIN_FONTS[1]).family();
-        DEFAULT_FONT = getFamily(DEFAULT_FONT_FAMILY).get(FontInfo.Type.Regular);
+        // Select default font - prefer CJK-capable font when game language is CJK
+        String lang = mc.options.language;
+        if (lang != null && CJK_LANGS.contains(lang)) {
+            DEFAULT_FONT = findCjkFont();
+            if (DEFAULT_FONT != null) {
+                DEFAULT_FONT_FAMILY = DEFAULT_FONT.info.family();
+                MeteorClient.LOG.info("CJK locale detected ({}), using CJK font: {}", lang, DEFAULT_FONT_FAMILY);
+            }
+        }
+
+        if (DEFAULT_FONT == null) {
+            DEFAULT_FONT_FAMILY = FontUtils.getBuiltinFontInfo(BUILTIN_FONTS[1]).family();
+            DEFAULT_FONT = getFamily(DEFAULT_FONT_FAMILY).get(FontInfo.Type.Regular);
+        }
 
         Config config = Config.get();
         load(config != null ? config.font.get() : DEFAULT_FONT);
@@ -89,6 +113,17 @@ public class Fonts {
             }
         }
 
+        return null;
+    }
+
+    /** Tries to find a CJK-capable system font, returning null if none found. */
+    private static FontFace findCjkFont() {
+        for (FontFamily family : FONT_FAMILIES) {
+            if (CJK_FONT_FAMILIES.contains(family.getName())) {
+                FontFace face = family.get(FontInfo.Type.Regular);
+                if (face != null) return face;
+            }
+        }
         return null;
     }
 }
