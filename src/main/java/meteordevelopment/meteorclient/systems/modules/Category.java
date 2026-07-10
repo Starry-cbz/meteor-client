@@ -5,6 +5,7 @@
 
 package meteordevelopment.meteorclient.systems.modules;
 
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
@@ -24,7 +25,13 @@ public class Category {
 
     @Override
     public String toString() {
-        return name;
+        return getName();
+    }
+
+    /** Returns the translated category name, falling back to the English name. */
+    public String getName() {
+        String key = "category.meteor-client." + name;
+        return I18n.hasTranslation(key) ? I18n.translate(key) : name;
     }
 
     @Override

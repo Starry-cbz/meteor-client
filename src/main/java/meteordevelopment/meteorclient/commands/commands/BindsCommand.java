@@ -37,7 +37,7 @@ public class BindsCommand extends Command {
             for (Module module : modules) {
                 HoverEvent hoverEvent = new HoverEvent.ShowText(getTooltip(module));
 
-                MutableText text = Text.literal(module.title).formatted(Formatting.WHITE);
+                MutableText text = Text.literal(module.getTitle()).formatted(Formatting.WHITE);
                 text.setStyle(text.getStyle().withHoverEvent(hoverEvent));
 
                 MutableText sep = Text.literal(" - ");
@@ -56,8 +56,8 @@ public class BindsCommand extends Command {
     }
 
     private MutableText getTooltip(Module module) {
-        MutableText tooltip = Text.literal(Utils.nameToTitle(module.title)).formatted(Formatting.BLUE, Formatting.BOLD).append("\n\n");
-        tooltip.append(Text.literal(module.description).formatted(Formatting.WHITE));
+        MutableText tooltip = Text.literal(Utils.nameToTitle(module.getTitle())).formatted(Formatting.BLUE, Formatting.BOLD).append("\n\n");
+        tooltip.append(Text.literal(module.getDescription()).formatted(Formatting.WHITE));
         return tooltip;
     }
 }

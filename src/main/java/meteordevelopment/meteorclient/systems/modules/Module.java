@@ -18,6 +18,7 @@ import meteordevelopment.meteorclient.utils.misc.Keybind;
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
@@ -117,7 +118,7 @@ public abstract class Module implements ISerializable<Module>, Comparable<Module
     public void sendToggledMsg() {
         if (Config.get().chatFeedback.get() && chatFeedback) {
             ChatUtils.forceNextPrefixClass(getClass());
-            ChatUtils.sendMsg(this.hashCode(), Formatting.GRAY, "Toggled (highlight)%s(default) %s(default).", title, isActive() ? Formatting.GREEN + "on" : Formatting.RED + "off");
+            ChatUtils.sendMsg(this.hashCode(), Formatting.GRAY, "Toggled (highlight)%s(default) %s(default).", getTitle(), isActive() ? Formatting.GREEN + "on" : Formatting.RED + "off");
         }
     }
 
@@ -199,5 +200,17 @@ public abstract class Module implements ISerializable<Module>, Comparable<Module
     @Override
     public int compareTo(@NotNull Module o) {
         return name.compareTo(o.name);
+    }
+
+    /** Returns the translated title, falling back to the auto-generated English title. */
+    public String getTitle() {
+        String key = "module.meteor-client." + name;
+        return I18n.hasTranslation(key) ? I18n.translate(key) : title;
+    }
+
+    /** Returns the translated description, falling back to the English description. */
+    public String getDescription() {
+        String key = "module.meteor-client." + name + ".description";
+        return I18n.hasTranslation(key) ? I18n.translate(key) : description;
     }
 }

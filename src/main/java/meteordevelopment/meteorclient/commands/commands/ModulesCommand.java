@@ -29,7 +29,7 @@ public class ModulesCommand extends Command {
             Modules.loopCategories().forEach(category -> {
                 MutableText categoryMessage = Text.literal("");
                 Modules.get().getGroup(category).forEach(module -> categoryMessage.append(getModuleText(module)));
-                ChatUtils.sendMsg(category.name, categoryMessage);
+                ChatUtils.sendMsg(category.getName(), categoryMessage);
             });
 
             return SINGLE_SUCCESS;
@@ -40,11 +40,11 @@ public class ModulesCommand extends Command {
         // Hover tooltip
         MutableText tooltip = Text.literal("");
 
-        tooltip.append(Text.literal(module.title).formatted(Formatting.BLUE, Formatting.BOLD)).append("\n");
+        tooltip.append(Text.literal(module.getTitle()).formatted(Formatting.BLUE, Formatting.BOLD)).append("\n");
         tooltip.append(Text.literal(module.name).formatted(Formatting.GRAY)).append("\n\n");
-        tooltip.append(Text.literal(module.description).formatted(Formatting.WHITE));
+        tooltip.append(Text.literal(module.getDescription()).formatted(Formatting.WHITE));
 
-        MutableText finalModule = Text.literal(module.title);
+        MutableText finalModule = Text.literal(module.getTitle());
         if (!module.isActive()) finalModule.formatted(Formatting.GRAY);
         if (!module.equals(Modules.get().getGroup(module.category).getLast())) finalModule.append(Text.literal(", ").formatted(Formatting.GRAY));
         finalModule.setStyle(finalModule.getStyle().withHoverEvent(new HoverEvent.ShowText(tooltip)));

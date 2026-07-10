@@ -14,6 +14,7 @@ import meteordevelopment.meteorclient.systems.config.Config;
 import meteordevelopment.meteorclient.utils.Utils;
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.CommandSource;
 import net.minecraft.registry.BuiltinRegistries;
@@ -67,6 +68,18 @@ public abstract class Command {
 
     public String getDescription() {
         return description;
+    }
+
+    /** Returns the translated title, falling back to the auto-generated English title. */
+    public String getTitle() {
+        String key = "command.meteor-client." + name;
+        return I18n.hasTranslation(key) ? I18n.translate(key) : title;
+    }
+
+    /** Returns the translated description, falling back to the English description. */
+    public String getTranslatedDescription() {
+        String key = "command.meteor-client." + name + ".description";
+        return I18n.hasTranslation(key) ? I18n.translate(key) : description;
     }
 
     public List<String> getAliases() {

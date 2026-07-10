@@ -9,6 +9,7 @@ import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.Utils;
 import meteordevelopment.meteorclient.utils.misc.IGetter;
 import meteordevelopment.meteorclient.utils.misc.ISerializable;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -150,6 +151,20 @@ public abstract class Setting<T> implements IGetter<T>, ISerializable<T> {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    /** Returns the translated title, falling back to the auto-generated English title. */
+    public String getTitle() {
+        String modName = module != null ? module.name : "global";
+        String key = "setting.meteor-client." + modName + "." + name;
+        return I18n.hasTranslation(key) ? I18n.translate(key) : title;
+    }
+
+    /** Returns the translated description, falling back to the English description. */
+    public String getDescription() {
+        String modName = module != null ? module.name : "global";
+        String key = "setting.meteor-client." + modName + "." + name + ".description";
+        return I18n.hasTranslation(key) ? I18n.translate(key) : description;
     }
 
     @Nullable
