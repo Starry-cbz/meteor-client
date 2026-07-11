@@ -1,0 +1,83 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+}
+
+base {
+    archivesName = project.archives_base_name
+    group = project.maven_group
+    version = project.mod_version
+}
+
+repositories {
+    maven {
+        url = "https://jm.gserv.me/repository/maven-public/"
+        content { includeGroup("info.journeymap") }
+    }
+    maven {
+        name = "modrinth"
+        url = "https://api.modrinth.com/maven/"
+    }
+    maven { url = "https://www.cursemaven.com" }
+    maven { url = "https://masa.dy.fi/maven" }
+    maven { url = "https://maven.isxander.dev/releases" }
+    maven { url = "https://maven.isxander.dev/snapshots" }
+    maven { url = "https://maven.jackf.red/releases/" }
+    maven {
+        name = 'meteor-maven'
+        url = 'https://maven.meteordev.org/releases'
+    }
+    maven {
+        name = 'meteor-maven-snapshots'
+        url = 'https://maven.meteordev.org/snapshots'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    // Fabric
+    minecraft "com.mojang:minecraft:${project.properties['minecraft_version']}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.properties['loader_version']}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.properties['fabric_api_version']}"
+
+    // Mixin extras
+    annotationProcessor "io.github.llamalad7:mixinextras-fabric:0.5.3"
+
+    // Meteor Client
+    implementation files("libs/baritone-unoptimized-fabric-1.15.0-2-gf7a53504.jar")
+    modImplementation "meteordevelopment:meteor-client:${project.properties['minecraft_version']}-SNAPSHOT"
+    implementation "meteordevelopment:starscript:${project.properties['starscript_version']}"
+    implementation "meteordevelopment:orbit:${project.properties['orbit_version']}"
+
+    // Xaero's Mods
+    modCompileOnly "maven.modrinth:xaeros-world-map:${project.properties['xwm_version']}"
+    modCompileOnly "maven.modrinth:xaeros-minimap:${project.properties['xmm_version']}"
+    modCompileOnly files("libs/xaerolib-fabric-1.21.11-1.0.38.jar")
+
+    // Chest Tracker (Where Is It)
+    implementation "red.jackf.whereisit:whereisit:${project.properties['whereisit_version']}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+processResources {
+    filesMatching('fabric.mod.json') {
+        expand(version: project.version, mc_version: minecraft_version, gh_hash: System.getenv('GITHUB_SHA') ?: '')
+    }
+}
+
+jar {
+    inputs.property "archivesName", project.base.archivesName
+
+    from('LICENSE') {
+        rename { "${it}_${inputs.properties.archivesName}" }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
