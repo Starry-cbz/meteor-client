@@ -11,9 +11,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-meteor-client:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -30,9 +29,84 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -Pbuild_number=${{ github.run_number }} -Pcommit=${{ github.sha }}
 
-      - name: Upload Fabric JAR
+      - name: Upload Meteor Client JAR
         uses: actions/upload-artifact@v4
         with:
-          name: meteor-client-fabric-${{ github.run_number }}
+          name: meteor-client-${{ github.run_number }}
           path: build/libs/meteor-client-*.jar
+          retention-days: 30
+
+  build-meteorist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Meteorist
+        run: cd Meteorist && ./gradlew build -Pbuild_number=${{ github.run_number }}
+
+      - name: Upload Meteorist JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: meteorist-${{ github.run_number }}
+          path: Meteorist/build/libs/*.jar
+          retention-days: 30
+
+  build-meteorplus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build MeteorPlus
+        run: cd MeteorPlus && ./gradlew build -Pbuild_number=${{ github.run_number }}
+
+      - name: Upload MeteorPlus JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: meteorplus-${{ github.run_number }}
+          path: MeteorPlus/build/libs/*.jar
+          retention-days: 30
+
+  build-numbyhack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Numby Hack
+        run: cd Numby-hack && ./gradlew build -Pbuild_number=${{ github.run_number }}
+
+      - name: Upload Numby Hack JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: numbyhack-${{ github.run_number }}
+          path: Numby-hack/build/libs/*.jar
           retention-days: 30

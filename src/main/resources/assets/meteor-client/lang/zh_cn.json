@@ -435,5 +435,328 @@
   "command.meteor-client.wasp": "黄蜂",
   "command.meteor-client.wasp.description": "自动黄蜂目标选择。",
   "command.meteor-client.waypoint": "路径点",
-  "command.meteor-client.waypoint.description": "管理路径点。"
+  "command.meteor-client.waypoint.description": "管理路径点。",
+
+  "setting.meteor-client.global.range": "范围",
+  "setting.meteor-client.global.delay": "延迟",
+  "setting.meteor-client.global.speed": "速度",
+  "setting.meteor-client.global.blocks": "方块",
+  "setting.meteor-client.global.items": "物品",
+  "setting.meteor-client.global.mode": "模式",
+  "setting.meteor-client.global.render": "渲染",
+  "setting.meteor-client.global.rotate": "旋转",
+  "setting.meteor-client.global.priority": "优先级",
+  "setting.meteor-client.global.swap-back": "切换回",
+  "setting.meteor-client.global.place-range": "放置范围",
+  "setting.meteor-client.global.break-range": "破坏范围",
+
+  "setting.meteor-client.crystal-aura.range": "范围",
+  "setting.meteor-client.crystal-aura.delay": "延迟",
+  "setting.meteor-client.crystal-aura.place-range": "放置范围",
+  "setting.meteor-client.crystal-aura.break-range": "破坏范围",
+  "setting.meteor-client.crystal-aura.min-damage": "最小伤害",
+  "setting.meteor-client.crystal-aura.max-damage": "最大伤害",
+  "setting.meteor-client.crystal-aura.max-self-damage": "最大自伤",
+  "setting.meteor-client.crystal-aura.anti-suicide": "防自杀",
+  "setting.meteor-client.crystal-aura.rotate": "旋转",
+  "setting.meteor-client.crystal-aura.swing": "挥手臂",
+  "setting.meteor-client.crystal-aura.auto-switch": "自动切换",
+  "setting.meteor-client.crystal-aura.swap-back": "切换回",
+  "setting.meteor-client.crystal-aura.only-on-exposed": "仅暴露面",
+  "setting.meteor-client.crystal-aura.render": "渲染",
+  "setting.meteor-client.crystal-aura.render-time": "渲染时间",
+  "setting.meteor-client.crystal-aura.smooth-time": "平滑时间",
+  "setting.meteor-client.crystal-aura.packet-mode": "数据包模式",
+  "setting.meteor-client.crystal-aura.field-of-view": "视野角度",
+  "setting.meteor-client.crystal-aura.should-absorb": "吸收",
+  "setting.meteor-client.crystal-aura.cancel-crystal": "取消水晶",
+
+  "setting.meteor-client.kill-aura.range": "范围",
+  "setting.meteor-client.kill-aura.delay": "延迟",
+  "setting.meteor-client.kill-aura.priority": "优先级",
+  "setting.meteor-client.kill-aura.targets": "目标",
+  "setting.meteor-client.kill-aura.rotate": "旋转",
+  "setting.meteor-client.kill-aura.auto-switch": "自动切换",
+  "setting.meteor-client.kill-aura.swing": "挥手臂",
+  "setting.meteor-client.kill-aura.weapon": "武器",
+  "setting.meteor-client.kill-aura.pause-on-combat": "战斗时暂停",
+  "setting.meteor-client.kill-aura.pause-on-eat": "进食时暂停",
+  "setting.meteor-client.kill-aura.pause-on-drink": "饮用时暂停",
+  "setting.meteor-client.kill-aura.pause-on-mine": "挖掘时暂停",
+  "setting.meteor-client.kill-aura.shield-breaker": "破盾",
+
+  "setting.meteor-client.anchor-aura.range": "范围",
+  "setting.meteor-client.anchor-aura.min-damage": "最小伤害",
+  "setting.meteor-client.anchor-aura.max-self-damage": "最大自伤",
+  "setting.meteor-client.anchor-aura.rotate": "旋转",
+  "setting.meteor-client.anchor-aura.place-delay": "放置延迟",
+  "setting.meteor-client.anchor-aura.render": "渲染",
+
+  "setting.meteor-client.bed-aura.range": "范围",
+  "setting.meteor-client.bed-aura.min-damage": "最小伤害",
+  "setting.meteor-client.bed-aura.max-self-damage": "最大自伤",
+  "setting.meteor-client.bed-aura.rotate": "旋转",
+
+  "setting.meteor-client.auto-totem.health": "生命值",
+  "setting.meteor-client.auto-totem.when-bind": "按键时",
+  "setting.meteor-client.auto-totem.require-bind": "需要按键",
+  "setting.meteor-client.auto-totem.lock-totem": "锁定图腾",
+  "setting.meteor-client.auto-totem.lock-delay": "锁定延迟",
+
+  "setting.meteor-client.auto-armor.protocol": "协议",
+  "setting.meteor-client.auto-armor.delay": "延迟",
+  "setting.meteor-client.auto-armor.auto-mend": "自动修补",
+  "setting.meteor-client.auto-armor.anti-break": "防损坏",
+  "setting.meteor-client.auto-armor.ignore-elytra": "忽略鞘翅",
+  "setting.meteor-client.auto-armor.preferred-elytra": "偏好鞘翅键",
+
+  "setting.meteor-client.auto-trap.range": "范围",
+  "setting.meteor-client.auto-trap.delay": "延迟",
+  "setting.meteor-client.auto-trap.rotate": "旋转",
+  "setting.meteor-client.auto-trap.render": "渲染",
+
+  "setting.meteor-client.surround.range": "范围",
+  "setting.meteor-client.surround.delay": "延迟",
+  "setting.meteor-client.surround.rotate": "旋转",
+  "setting.meteor-client.surround.trigger-mode": "触发模式",
+  "setting.meteor-client.surround.center": "中心",
+  "setting.meteor-client.surround.only-on-ground": "仅在地面",
+
+  "setting.meteor-client.hole-filler.range": "范围",
+  "setting.meteor-client.hole-filler.delay": "延迟",
+  "setting.meteor-client.hole-filler.rotate": "旋转",
+  "setting.meteor-client.hole-filler.blocks": "方块",
+
+  "setting.meteor-client.auto-city.target-range": "目标范围",
+  "setting.meteor-client.auto-city.break-range": "破坏范围",
+  "setting.meteor-client.auto-city.rotate": "旋转",
+  "setting.meteor-client.auto-city.render": "渲染",
+
+  "setting.meteor-client.bow-aimbot.range": "范围",
+  "setting.meteor-client.bow-aimbot.priority": "优先级",
+
+  "setting.meteor-client.bow-spam.delay": "延迟",
+  "setting.meteor-client.bow-spam.mode": "模式",
+
+  "setting.meteor-client.auto-anvil.range": "范围",
+  "setting.meteor-client.auto-anvil.delay": "延迟",
+  "setting.meteor-client.auto-anvil.height": "高度",
+  "setting.meteor-client.auto-anvil.rotate": "旋转",
+
+  "setting.meteor-client.auto-web.range": "范围",
+  "setting.meteor-client.auto-web.delay": "延迟",
+  "setting.meteor-client.auto-web.rotate": "旋转",
+
+  "setting.meteor-client.criticals.mode": "模式",
+
+  "setting.meteor-client.offhand.item": "物品",
+  "setting.meteor-client.offhand.anti-break": "防损坏",
+
+  "setting.meteor-client.flight.speed": "速度",
+  "setting.meteor-client.flight.mode": "模式",
+  "setting.meteor-client.flight.anti-kick": "防踢",
+  "setting.meteor-client.flight.vertical-speed": "垂直速度",
+  "setting.meteor-client.flight.fall-speed": "下落速度",
+
+  "setting.meteor-client.speed.speed": "速度",
+  "setting.meteor-client.speed.mode": "模式",
+  "setting.meteor-client.speed.auto-jump": "自动跳跃",
+  "setting.meteor-client.speed.jump": "跳跃",
+  "setting.meteor-client.speed.apply-ground": "应用地面",
+
+  "setting.meteor-client.elytra-fly.speed": "速度",
+  "setting.meteor-client.elytra-fly.horizontal-speed": "水平速度",
+  "setting.meteor-client.elytra-fly.vertical-speed": "垂直速度",
+  "setting.meteor-client.elytra-fly.pitch": "俯仰角",
+  "setting.meteor-client.elytra-fly.auto-take-off": "自动起飞",
+
+  "setting.meteor-client.scaffold.range": "范围",
+  "setting.meteor-client.scaffold.delay": "延迟",
+  "setting.meteor-client.scaffold.rotate": "旋转",
+  "setting.meteor-client.scaffold.blocks": "方块",
+  "setting.meteor-client.scaffold.swap-back": "切换回",
+  "setting.meteor-client.scaffold.speed": "速度",
+
+  "setting.meteor-client.velocity.horizontal": "水平",
+  "setting.meteor-client.velocity.vertical": "垂直",
+  "setting.meteor-client.velocity.mode": "模式",
+  "setting.meteor-client.velocity.entities": "实体",
+
+  "setting.meteor-client.jesus.speed": "速度",
+  "setting.meteor-client.jesus.mode": "模式",
+
+  "setting.meteor-client.no-fall.mode": "模式",
+
+  "setting.meteor-client.no-slow.items": "物品",
+  "setting.meteor-client.no-slow.web": "蛛网",
+  "setting.meteor-client.no-slow.berry-bush": "甜浆果丛",
+  "setting.meteor-client.no-slow.slime-block": "粘液块",
+
+  "setting.meteor-client.step.height": "高度",
+  "setting.meteor-client.step.mode": "模式",
+
+  "setting.meteor-client.spider.mode": "模式",
+  "setting.meteor-client.spider.speed": "速度",
+
+  "setting.meteor-client.long-jump.mode": "模式",
+  "setting.meteor-client.long-jump.speed": "速度",
+
+  "setting.meteor-client.high-jump.height": "高度",
+  "setting.meteor-client.high-jump.mode": "模式",
+
+  "setting.meteor-client.auto-eat.food": "食物",
+  "setting.meteor-client.auto-eat.health": "生命值",
+  "setting.meteor-client.auto-eat.hunger": "饥饿值",
+  "setting.meteor-client.auto-eat.delay": "延迟",
+
+  "setting.meteor-client.auto-tool.mode": "模式",
+  "setting.meteor-client.auto-tool.swap-back": "切换回",
+
+  "setting.meteor-client.auto-clicker.mode": "模式",
+  "setting.meteor-client.auto-clicker.delay": "延迟",
+
+  "setting.meteor-client.fast-use.items": "物品",
+  "setting.meteor-client.fast-use.multiplier": "倍率",
+
+  "setting.meteor-client.auto-gap.health": "生命值",
+
+  "setting.meteor-client.chest-swap.health": "生命值",
+  "setting.meteor-client.chest-swap.delay": "延迟",
+
+  "setting.meteor-client.esp.range": "范围",
+  "setting.meteor-client.esp.players": "玩家",
+  "setting.meteor-client.esp.monsters": "怪物",
+  "setting.meteor-client.esp.animals": "动物",
+  "setting.meteor-client.esp.render-mode": "渲染模式",
+  "setting.meteor-client.esp.fill-color": "填充颜色",
+  "setting.meteor-client.esp.line-color": "线条颜色",
+  "setting.meteor-client.esp.side-color": "侧面颜色",
+  "setting.meteor-client.esp.tracer": "追踪线",
+  "setting.meteor-client.esp.outline": "轮廓",
+
+  "setting.meteor-client.tracers.range": "范围",
+  "setting.meteor-client.tracers.players": "玩家",
+  "setting.meteor-client.tracers.color": "颜色",
+  "setting.meteor-client.tracers.body": "身体",
+  "setting.meteor-client.tracers.feet": "脚部",
+
+  "setting.meteor-client.nametags.range": "范围",
+  "setting.meteor-client.nametags.scale": "大小",
+  "setting.meteor-client.nametags.self": "自身",
+  "setting.meteor-client.nametags.background": "背景",
+
+  "setting.meteor-client.storage-esp.range": "范围",
+  "setting.meteor-client.storage-esp.blocks": "方块",
+
+  "setting.meteor-client.block-esp.range": "范围",
+  "setting.meteor-client.block-esp.blocks": "方块",
+
+  "setting.meteor-client.hole-esp.range": "范围",
+  "setting.meteor-client.hole-esp.bedrock": "基岩",
+  "setting.meteor-client.hole-esp.obsidian": "黑曜石",
+  "setting.meteor-client.hole-esp.mixed": "混合",
+
+  "setting.meteor-client.freecam.speed": "速度",
+  "setting.meteor-client.freecam.interact": "交互",
+
+  "setting.meteor-client.xray.blocks": "方块",
+  "setting.meteor-client.xray.opacity": "不透明度",
+
+  "setting.meteor-client.nuker.range": "范围",
+  "setting.meteor-client.nuker.delay": "延迟",
+  "setting.meteor-client.nuker.blocks": "方块",
+  "setting.meteor-client.nuker.mode": "模式",
+  "setting.meteor-client.nuker.shape": "形状",
+  "setting.meteor-client.nuker.rotate": "旋转",
+
+  "setting.meteor-client.timer.multiplier": "倍率",
+
+  "setting.meteor-client.packet-mine.range": "范围",
+  "setting.meteor-client.packet-mine.delay": "延迟",
+  "setting.meteor-client.packet-mine.rotate": "旋转",
+
+  "setting.meteor-client.highway-builder.mode": "模式",
+  "setting.meteor-client.highway-builder.range": "范围",
+
+  "setting.meteor-client.vein-miner.range": "范围",
+  "setting.meteor-client.vein-miner.blocks": "方块",
+
+  "setting.meteor-client.excavator.range": "范围",
+  "setting.meteor-client.excavator.shape": "形状",
+
+  "setting.meteor-client.inventory-tweaks.steal": "快速拿取",
+  "setting.meteor-client.inventory-tweaks.dump": "批量丢弃",
+  "setting.meteor-client.inventory-tweaks.auto-steal": "自动拿取",
+  "setting.meteor-client.inventory-tweaks.auto-dump": "自动丢弃",
+
+  "setting.meteor-client.better-chat.anti-spam": "防刷屏",
+  "setting.meteor-client.better-chat.infinite": "无限长度",
+  "setting.meteor-client.better-chat.smooth": "平滑",
+  "setting.meteor-client.better-chat.prefix": "前缀",
+
+  "setting.meteor-client.spam.delay": "延迟",
+  "setting.meteor-client.spam.messages": "消息",
+
+  "setting.meteor-client.auto-reconnect.delay": "延迟",
+
+  "setting.meteor-client.notifier.totem": "图腾",
+  "setting.meteor-client.notifier.visual-range": "可视范围",
+  "setting.meteor-client.notifier.death": "死亡",
+
+  "setting.meteor-client.discord-presence.state": "状态",
+  "setting.meteor-client.discord-presence.details": "详情",
+  "setting.meteor-client.discord-presence.large-image": "大图",
+
+  "setting.meteor-client.logout-spots.range": "范围",
+  "setting.meteor-client.logout-spots.scale": "大小",
+
+  "setting.meteor-client.pop-chams.range": "范围",
+  "setting.meteor-client.pop-chams.duration": "持续时间",
+
+  "setting.meteor-client.trail.range": "范围",
+  "setting.meteor-client.trail.color": "颜色",
+
+  "setting.meteor-client.waypoints.scale": "大小",
+  "setting.meteor-client.waypoints.distance": "距离",
+
+  "setting.meteor-client.zoom.multiplier": "倍率",
+  "setting.meteor-client.zoom.smoothness": "平滑度",
+  "setting.meteor-client.zoom.mode": "模式",
+
+  "setting.meteor-client.fullbright.mode": "模式",
+
+  "setting.meteor-client.time-changer.time": "时间",
+
+  "setting.meteor-client.break-indicators.mode": "模式",
+
+  "setting.meteor-client.blur.radius": "半径",
+  "setting.meteor-client.blur.opacity": "不透明度",
+
+  "setting.meteor-client.hand-view.scale": "大小",
+  "setting.meteor-client.hand-view.x": "X偏移",
+  "setting.meteor-client.hand-view.y": "Y偏移",
+  "setting.meteor-client.hand-view.z": "Z偏移",
+  "setting.meteor-client.hand-view.rotation-x": "X旋转",
+  "setting.meteor-client.hand-view.rotation-y": "Y旋转",
+  "setting.meteor-client.hand-view.rotation-z": "Z旋转",
+  "setting.meteor-client.hand-view.animation": "动画",
+
+  "setting.meteor-client.no-render.overlays": "覆盖层",
+  "setting.meteor-client.no-render.hud": "HUD",
+  "setting.meteor-client.no-render.gui": "GUI",
+  "setting.meteor-client.no-render.hand": "手部",
+  "setting.meteor-client.no-render.fire": "火焰",
+  "setting.meteor-client.no-render.hurt-cam": "受伤抖动",
+  "setting.meteor-client.no-render.nausea": "反胃效果",
+  "setting.meteor-client.no-render.portal": "传送门",
+  "setting.meteor-client.no-render.pumpkin": "南瓜",
+  "setting.meteor-client.no-render.powder-snow": "细雪",
+  "setting.meteor-client.no-render.blindness": "失明",
+  "setting.meteor-client.no-render.darkness": "黑暗",
+  "setting.meteor-client.no-render.totem-animation": "图腾动画",
+  "setting.meteor-client.no-render.scoreboard": "计分板",
+  "setting.meteor-client.no-render.vignette": "暗角",
+  "setting.meteor-client.no-render.boss-bar": "Boss栏",
+  "setting.meteor-client.no-render.map": "地图",
+  "setting.meteor-client.no-render.weather": "天气"
 }
