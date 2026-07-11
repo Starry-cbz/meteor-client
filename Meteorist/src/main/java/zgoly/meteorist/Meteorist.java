@@ -1,6 +1,6 @@
 package zgoly.meteorist;
 
-import me.pindour.catppuccin.api.icons.CatppuccinIcons;
+// import me.pindour.catppuccin.api.icons.CatppuccinIcons; // Removed - catppuccin-addon unavailable
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
@@ -78,10 +78,10 @@ public class Meteorist extends MeteorAddon {
 
         ICON = GuiRenderer.addTexture(identifier("textures/icons/meteorist.png"));
 
-        // Catppuccin-styled category icon
-        if (FabricLoader.getInstance().isModLoaded("catppuccin-addon")) {
-            CatppuccinIcons.registerCategoryIcon(CATEGORY.name, ICON);
-        }
+        // Catppuccin-styled category icon (disabled - catppuccin-addon unavailable)
+        // if (FabricLoader.getInstance().isModLoaded("catppuccin-addon")) {
+        //     CatppuccinIcons.registerCategoryIcon(CATEGORY.name, ICON);
+        // }
 
         // Config
         MeteoristConfigScreen.init();
