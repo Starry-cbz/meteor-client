@@ -81,7 +81,22 @@ jobs:
           cache-disabled: true
 
       - name: Build MeteorPlus
-        run: cd MeteorPlus && chmod +x gradlew && ./gradlew build --no-daemon -Pbuild_number=${{ github.run_number }}
+        run: |
+          cd MeteorPlus
+          chmod +x gradlew
+          echo "=== Checking dependency JARs for .accesswidener files ==="
+          for jar in $(find ~/.gradle/caches -name "*.jar" -path "*/whereisit/*" 2>/dev/null) libs/*.jar; do
+            [ -f "$jar" ] || continue
+            aw=$(unzip -p "$jar" '*.accesswidener' 2>/dev/null | head -1)
+            if [ -n "$aw" ]; then
+              echo "FOUND AW in: $(basename $jar) -> $aw"
+            fi
+          done
+          echo "========================================"
+          echo "=== Searching ALL cached JARs for AW files with 'official' namespace ==="
+          find ~/.gradle/caches -name "*.jar" -exec sh -c 'header=$(unzip -p "$1" "*.accesswidener" 2>/dev/null | head -1); if echo "$header" | grep -q "official"; then echo "OFFICIAL AW: $1 -> $header"; fi' _ {} \; 2>/dev/null | head -20
+          echo "========================================"
+          ./gradlew build --no-daemon --stacktrace -Pbuild_number=${{ github.run_number }}
 
       - name: Upload MeteorPlus JAR
         uses: actions/upload-artifact@v4
