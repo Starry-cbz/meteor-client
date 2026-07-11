@@ -87,7 +87,6 @@ dependencies {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/meteorplus.accesswidener")
 }
 
 tasks {
