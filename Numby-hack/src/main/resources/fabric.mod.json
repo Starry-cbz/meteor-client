@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "numbyhack",
+  "version": "${version}",
+  "name": "Numby Hack",
+  "description": "A Meteor addon focused on adding utility modules and giving users more customization options. Made in honor of Number81.",
+  "authors": ["cqb13"],
+  "contact": {
+    "repo": "https://github.com/cqb13/Numby-hack",
+    "sources": "https://github.com/cqb13/Numby-hack",
+    "issues": "https://github.com/cqb13/Numby-hack/issues"
+  },
+  "icon": "assets/numby-hack/textures/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": ["cqb13.NumbyHack.NumbyHack"]
+  },
+  "mixins": ["NumbyHack.mixins.json"],
+  "accessWidener": "numby.accesswidener",
+  "custom": {
+    "meteor-client:color": "146,188,98"
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": ">=${mc_version}",
+    "meteor-client": "*"
+  }
+}

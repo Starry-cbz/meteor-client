@@ -1,9 +1,0 @@
-[submodule "Numby-hack"]
-	path = Numby-hack
-	url = https://github.com/Starry-cbz/Numby-hack.git
-[submodule "Meteorist"]
-	path = Meteorist
-	url = https://github.com/Starry-cbz/Meteorist.git
-[submodule "MeteorPlus"]
-	path = MeteorPlus
-	url = https://github.com/Starry-cbz/MeteorPlus.git

@@ -1,0 +1,8 @@
+{
+  "tags": ["Utility", "Fun", "Misc", "QoL", "Render"],
+  "feature_directories": {
+    "commands": ["modules/commands"],
+    "modules": ["modules/general"],
+    "hud_elements": ["modules/hud"]
+  }
+}

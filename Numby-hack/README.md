@@ -1,0 +1,82 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/cqb13/Numby-hack/main/src/main/resources/assets/numby-hack/textures/icon.png" alt="logo" width="20%"/>
+  <h1>Numby Hack</h1>
+  <p>A Meteor addon focused on adding utility modules and giving users more customization options. Made in honor of Number81.</p>
+
+<a href="https://www.meteoraddons.com/?addon=cqb13%2FNumby-hack"><img src="https://img.shields.io/badge/Verified-Yes!-green" alt="Verified"></a>
+<img src="https://img.shields.io/badge/Minecraft%20Version-1.21.11-green" alt="Minecraft Version">
+<img src="https://img.shields.io/github/downloads/cqb13/Numby-hack/total?color=green">
+<img src="https://img.shields.io/github/languages/code-size/cqb13/Numby-hack?color=green" alt="Code Size">
+
+<p>Join for support<p>
+<a href="https://discord.gg/TtmQs7BzPJ"><img src="https://invidget.switchblade.xyz/TtmQs7BzPJ"></a>
+
+[Find more cool addons here](https://meteoraddons.com/)
+
+</div>
+
+<hr />
+
+# How to use
+
+- Download the latest [release](/../../releases) of this mod from the releases tab.
+- Put it in your `.minecraft/mods` folder where you have installed Meteor.
+
+_Note: Meteor Client is required for this addon_
+
+<h1>Modules:</h1>
+<h2>General:</h2>
+<pre>
+Auto Log Plus         || Automatically disconnects you when a specific condition is met
+Better Place          || Allows you to place blocks in weird ways
+Bayblade              || People see you spin
+Carpet Place          || Helps with manual carpet placing for spawn proofing and mapart
+Bonemeal Aura         || Automatically bonemeal crops around the player
+Chat Encryption       || Encrypts messages using a user-provided key
+Chunk Borders         || Customizable chunk border rendering
+Condition Toggle      || Toggles modules based on conditions
+Confetti              || Changes the color of totem pop particles
+Log Out Spots         || Shows where a player has logged out
+Map Art Tracker       || Track and highlights map arts
+New Chunks            || Finds new chunks based on flowing liquids
+No Strip              || Prevents you from stripping logs
+Number81              || Counts to 81 in chat
+Numby Chat            || Improves your chat experience in various ways
+NumbyRPC              || Displays Numby Hack as your presence on Discord
+Packet Delay          || Allows you to delay the packets you send to a server
+Ride Stats            || Nametag with information about rideable entities
+Safe Fire             || Does not allow you to walk into fire sources
+Safety Net            || Places a block under you if your reach a set Y level
+Shield Swap           || Automatically swaps a shield into your offhand
+Sculk Range ESP       || Draws a range indicator around the activation range of sculk sensors
+Sign Text ESP         || Shows you the text on signs from far away
+Spawner ESP           || Shows spawners of different mobs in different colors
+Egap Finder           || Searches for Egaps in single players and saves their location
+TNT Fuse Esp          || Shows the fuse time of lit tnt
+Wurst Glide           || Allows you to glide
+</pre>
+<h2>HUD:</h2>
+<pre>
+81                    || Number81 On Top!
+Item Counter          || Counts specific items from your inventory
+Lava Warning          || Warns you when there is lava under you
+Kills                 || Shows the amount of player kills
+Deaths                || Shows the amount of deaths
+KDR                   || Shows kill death ratio
+High Score            || Shows high score
+Kill Streak           || Shows your kill streak
+Text Radar            || Shows you the names of players in your render distance along with their stats
+Server Brand          || Shows the server brand
+</pre>
+<h1>Commands:</h1>
+<pre>
+.clear                || Clears your chat
+.coord-convert        || Converts coordinates to opposite dimensions (ow/end <-> nether)
+</pre>
+<h1>Features:</h1>
+<pre>
+player particle       || Renders particles around specific players
+Game Settings Tab     || Allows you to change some game settings
+</pre>
+
+_Note: Not all the code was written by me_
