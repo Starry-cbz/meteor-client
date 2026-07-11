@@ -62,7 +62,7 @@ repositories {
 dependencies {
 	// Fabric
 	minecraft(libs.minecraft)
-	mappings(loom.officialMojangMappings())
+	mappings(variantOf(libs.yarn) { classifier("v2") })
 	modImplementation(libs.fabric.loader)
 
 	// Fabric API
