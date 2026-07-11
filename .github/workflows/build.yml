@@ -52,7 +52,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Meteorist
-        run: cd Meteorist && ./gradlew build -Pbuild_number=${{ github.run_number }}
+        run: cd Meteorist && chmod +x gradlew && ./gradlew build -Pbuild_number=${{ github.run_number }}
 
       - name: Upload Meteorist JAR
         uses: actions/upload-artifact@v4
@@ -77,7 +77,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build MeteorPlus
-        run: cd MeteorPlus && ./gradlew build -Pbuild_number=${{ github.run_number }}
+        run: cd MeteorPlus && chmod +x gradlew && ./gradlew build -Pbuild_number=${{ github.run_number }}
 
       - name: Upload MeteorPlus JAR
         uses: actions/upload-artifact@v4
@@ -102,7 +102,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Numby Hack
-        run: cd Numby-hack && ./gradlew build -Pbuild_number=${{ github.run_number }}
+        run: cd Numby-hack && chmod +x gradlew && ./gradlew build -Pbuild_number=${{ github.run_number }}
 
       - name: Upload Numby Hack JAR
         uses: actions/upload-artifact@v4
